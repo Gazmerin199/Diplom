@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.bd.diplommm.MainController"
+            prefHeight="400.0" prefWidth="600.0">
+    <center>
+        <VBox spacing="20" style="-fx-padding: 20;">
+            <HBox spacing="20">
+                <Label text="Статистика: " />
+                <Label fx:id="childCountLabel" text=" " />
+                <Button text="Обновить" onAction="#handleRefresh" style="-fx-background-color: #2196F3; -fx-text-fill: white;" />
+            </HBox>
+
+            <HBox spacing="10">
+                <Button fx:id="childrenAdd" text="Добавить ребёнка" onAction="#handleAddChild" style="-fx-background-color: green;" />
+                <Button text="Экспорт в Excel" onAction="#handleExportExcel" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold; -fx-pref-width: 150;" />
+                <Button text="PDF отчет (выбр.)" onAction="#handleExportPDF" style="-fx-background-color: #9C27B0; -fx-text-fill: white; -fx-font-weight: bold; -fx-pref-width: 150;" />
+                <Button text="PDF отчет (все)" onAction="#handleExportAllPDF" style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-font-weight: bold; -fx-pref-width: 150;" />
+            </HBox>
+
+            <TableView fx:id="childrenTable" prefHeight="300">
+                <columns>
+                    <TableColumn text="ID" fx:id="idColumn" />
+                    <TableColumn text="ФИО" fx:id="nameColumn" />
+                    <TableColumn text="Тип инвалидности" fx:id="disabilityColumn" />
+                    <TableColumn text="Действия" fx:id="actionsColumn" />
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.bd.diplommm.ChildEditController"
+            prefHeight="800.0" prefWidth="1000.0"
+            style="-fx-background-color: #f5f5f5;">
+
+    <top>
+        <HBox style="-fx-background-color: #2196F3; -fx-padding: 15;">
+            <Label fx:id="titleLabel" text="Редактирование информации о ребёнке"
+                   style="-fx-text-fill: white; -fx-font-size: 20px; -fx-font-weight: bold;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Отмена" onAction="#handleCancel"
+                    style="-fx-background-color: #9E9E9E; -fx-text-fill: white; -fx-font-weight: bold; -fx-pref-width: 80;" />
+            <Button text="Сохранить" onAction="#handleSave"
+                    style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-pref-width: 80;" />
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER">
+            <VBox spacing="15" style="-fx-padding: 20;">
+
+                <!-- Основная информация -->
+                <TitledPane text="Основная информация" expanded="true">
+                    <GridPane vgap="10" hgap="15" style="-fx-padding: 15;">
+                        <Label text="ID:" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                        <Label fx:id="idLabel" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+
+                        <Label text="Фамилия:*" GridPane.rowIndex="0" GridPane.columnIndex="2" style="-fx-font-weight: bold;" />
+                        <TextField fx:id="lastNameField" GridPane.rowIndex="0" GridPane.columnIndex="3" prefWidth="200" />
+
+                        <Label text="Имя:*" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                        <TextField fx:id="firstNameField" GridPane.rowIndex="1" GridPane.columnIndex="1" prefWidth="200" />
+
+                        <Label text="Отчество:" GridPane.rowIndex="1" GridPane.columnIndex="2" style="-fx-font-weight: bold;" />
+                        <TextField fx:id="patronymicField" GridPane.rowIndex="1" GridPane.columnIndex="3" prefWidth="200" />
+
+                        <Label text="Дата рождения:*" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                        <DatePicker fx:id="birthDatePicker" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="200" />
+
+                        <Label text="Пол:*" GridPane.rowIndex="2" GridPane.columnIndex="2" style="-fx-font-weight: bold;" />
+                        <ComboBox fx:id="genderComboBox" GridPane.rowIndex="2" GridPane.columnIndex="3" prefWidth="200" />
+                    </GridPane>
+                </TitledPane>
+
+                <!-- Место жительства -->
+                <TitledPane text="Место жительства">
+                    <GridPane vgap="10" hgap="15" style="-fx-padding: 15;">
+                        <Label text="Место жительства (по прописке):" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                        <TextArea fx:id="residenceArea" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.columnSpan="3"
+                                  prefHeight="60" prefWidth="600" wrapText="true" />
+
+                        <Label text="Фактическое место жительства:" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                        <TextArea fx:id="actualResidenceArea" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="3"
+                                  prefHeight="60" prefWidth="600" wrapText="true" />
+                    </GridPane>
+                </TitledPane>
+
+                <!-- Информация о представителе -->
+                <TitledPane text="Информация о законном представителе">
+                    <GridPane vgap="10" hgap="15" style="-fx-padding: 15;">
+                        <Label text="ФИО представителя:" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                        <TextField fx:id="representativeNameField" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.columnSpan="3"
+                                   prefWidth="400" />
+
+                        <Label text="Место жительства представителя:" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                        <TextArea fx:id="representativeResidenceArea" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="3"
+                                  prefHeight="60" prefWidth="600" wrapText="true" />
+
+                        <Label text="Фактическое место жительство представителя:" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                        <TextArea fx:id="representativeActualResidenceArea" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.columnSpan="3"
+                                  prefHeight="60" prefWidth="600" wrapText="true" />
+
+                        <Label text="Телефон представителя:" GridPane.rowIndex="3" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                        <TextField fx:id="representativePhoneField" GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="200" />
+                    </GridPane>
+                </TitledPane>
+
+                <!-- Данные освидетельствования -->
+                <TitledPane text="Данные освидетельствования">
+                    <GridPane vgap="10" hgap="15" style="-fx-padding: 15;">
+                        <Label text="Номер акта освидетельствования:" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                        <TextField fx:id="examinationNumberField" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="150" />
+
+                        <Label text="Дата освидетельствования:" GridPane.rowIndex="0" GridPane.columnIndex="2" style="-fx-font-weight: bold;" />
+                        <DatePicker fx:id="examinationDatePicker" GridPane.rowIndex="0" GridPane.columnIndex="3" prefWidth="200" />
+
+                        <Label text="Первичное освидетельствование:" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                        <CheckBox fx:id="firstTimeCheckBox" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+
+                        <Label text="Повторное освидетельствование:" GridPane.rowIndex="1" GridPane.columnIndex="2" style="-fx-font-weight: bold;" />
+                        <CheckBox fx:id="repeatCheckBox" GridPane.rowIndex="1" GridPane.columnIndex="3" />
+
+                        <Label text="До 18 лет:" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                        <CheckBox fx:id="untilEighteenCheckBox" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                    </GridPane>
+                </TitledPane>
+
+                <!-- Образовательные данные -->
+                <TitledPane text="Образование">
+                    <GridPane vgap="10" hgap="15" style="-fx-padding: 15;">
+                        <Label text="Место обучения:" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                        <TextField fx:id="educationPlaceField" GridPane.rowIndex="0" GridPane.columnIndex="1" GridPane.columnSpan="3"
+                                   prefWidth="400" />
+
+                        <Label text="Образовательная программа:" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                        <TextField fx:id="educationProgramField" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="3"
+                                   prefWidth="400" />
+
+                        <Label text="Условия обучения:" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                        <TextArea fx:id="educationConditionsArea" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.columnSpan="3"
+                                  prefHeight="80" prefWidth="600" wrapText="true" />
+                    </GridPane>
+                </TitledPane>
+
+                <!-- Данные об инвалидности -->
+                <TitledPane text="Медико-социальная экспертиза">
+                    <GridPane vgap="10" hgap="15" style="-fx-padding: 15;">
+                        <Label text="Степень утраты здоровья:*" GridPane.rowIndex="0" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                        <ComboBox fx:id="healthLossDegreeComboBox" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="200" />
+
+                        <Label text="Срок утраты здоровья:" GridPane.rowIndex="0" GridPane.columnIndex="2" style="-fx-font-weight: bold;" />
+                        <DatePicker fx:id="healthLossTermPicker" GridPane.rowIndex="0" GridPane.columnIndex="3" prefWidth="200" />
+
+                        <Label text="Причина инвалидности:" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                        <TextField fx:id="disabilityReasonField" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.columnSpan="3"
+                                   prefWidth="400" />
+
+                        <Label text="Дополнение к решению экспертизы:" GridPane.rowIndex="2" GridPane.columnIndex="0" style="-fx-font-weight: bold;" />
+                        <TextArea fx:id="expertDecisionAdditionArea" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.columnSpan="3"
+                                  prefHeight="100" prefWidth="600" wrapText="true" />
+                    </GridPane>
+                </TitledPane>
+
+                <!-- Кнопки действий -->
+                <HBox spacing="15" alignment="CENTER">
+                    <Button text="Сохранить" onAction="#handleSave"
+                            style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-pref-width: 120;" />
+                    <Button text="Отмена" onAction="#handleCancel"
+                            style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-weight: bold; -fx-pref-width: 120;" />
+                    <Button text="Сбросить" onAction="#handleReset"
+                            style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-font-weight: bold; -fx-pref-width: 120;" />
+                    <Button text="Валидация" onAction="#handleValidate"
+                            style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold; -fx-pref-width: 120;" />
+                </HBox>
+
+            </VBox>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <HBox style="-fx-padding: 10; -fx-background-color: #e0e0e0;" alignment="CENTER">
+            <Label fx:id="statusLabel" text="Готово к редактированию" style="-fx-text-fill: #666;" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label text="* - обязательные поля" style="-fx-text-fill: #666; -fx-font-style: italic;" />
+        </HBox>
+    </bottom>
+
+</BorderPane>
