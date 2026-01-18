@@ -229,20 +229,6 @@ public class ChildViewController implements Initializable {
     }
 
     @FXML
-    private void handlePrint() {
-        // TODO: Реализовать печать информации
-        showAlert("Информация", "Печать",
-                "Печать информации о ребенке " + child.getFullName() + " будет доступна в следующей версии.");
-    }
-
-    @FXML
-    private void handleExport() {
-        // TODO: Реализовать экспорт в PDF/Word
-        showAlert("Информация", "Экспорт",
-                "Экспорт информации о ребенке " + child.getFullName() + " будет доступен в следующей версии.");
-    }
-
-    @FXML
     private void handleClose() {
         Stage stage = (Stage) idLabel.getScene().getWindow();
         stage.close();
@@ -255,4 +241,5 @@ public class ChildViewController implements Initializable {
         alert.setContentText(content);
         alert.showAndWait();
     }
+
 }
