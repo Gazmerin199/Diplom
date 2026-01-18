@@ -145,10 +145,6 @@
                 <HBox spacing="15" alignment="CENTER">
                     <Button text="Редактировать" onAction="#handleEdit"
                             style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold; -fx-pref-width: 120;" />
-                    <Button text="Печать" onAction="#handlePrint"
-                            style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold; -fx-pref-width: 120;" />
-                    <Button text="Экспорт" onAction="#handleExport"
-                            style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-font-weight: bold; -fx-pref-width: 120;" />
                     <Button text="Закрыть" onAction="#handleClose"
                             style="-fx-background-color: #9E9E9E; -fx-text-fill: white; -fx-font-weight: bold; -fx-pref-width: 120;" />
                 </HBox>
@@ -162,5 +158,6 @@
             <Label fx:id="statusLabel" text="" style="-fx-text-fill: #666;" />
         </HBox>
     </bottom>
+
 
 </BorderPane>
